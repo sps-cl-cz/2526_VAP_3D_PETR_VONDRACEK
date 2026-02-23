@@ -1,25 +1,57 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace MauiApp1
+namespace Úvod
+
 {
-    public static class MauiProgram
+
+    public static class MainPage : ContentPage
+
     {
-        public static MauiApp CreateMauiApp()
+
+        int count = 0;
+
+        Button[] buttons;
+
+        public MainPage()
+
         {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
 
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
+            InitializeComponent();
 
-            return builder.Build();
+            buttons = [CounterBtn1, CounterBtn2, CounterBtn3, CounterBtn4];
+            foreach (Button button in buttons)
+            {
+                button.IsEnabled = false;
+                button.FontSize = 30;
+                button.FontAttributes = FontAttributes.Bold;
+            }
+            Random random = new Random();
+            int index = random.Next(buttons.Length);
+            buttons[index].IsEnabled = true;
+            
+
         }
+
+        private void OnCounterClicked(object sender, EventArgs e)
+
+        {
+
+            count++;
+
+            if (count == 1)
+
+                CountLabel.Text = $"Clicked {count} time";
+
+            else
+
+                CountLabel.Text = $"Clicked {count} times";
+
+        }
+
     }
+
 }
+
+}
+
+ 
