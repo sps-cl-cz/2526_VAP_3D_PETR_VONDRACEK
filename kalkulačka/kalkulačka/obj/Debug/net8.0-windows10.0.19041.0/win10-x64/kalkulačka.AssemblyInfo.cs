@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kalkulačka")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+bc572c5117555c958eb1f2cb1c883398d213fedb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+1556e7eb751a3c3de13d48c221e7bb73637a4168")]
 [assembly: System.Reflection.AssemblyProductAttribute("kalkulačka")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kalkulačka")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

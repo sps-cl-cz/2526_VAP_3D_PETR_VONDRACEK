@@ -1,4 +1,6 @@
-﻿namespace kalkulačka
+﻿using System.Data;
+
+namespace kalkulačka
 {
     public partial class MainPage : ContentPage
     {
