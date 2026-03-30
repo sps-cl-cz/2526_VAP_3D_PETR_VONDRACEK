@@ -4,11 +4,9 @@
              x:Class="ProjectManager.Pages.NewProjectPage"
              Title="NewProjectPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
-       
+        <Entry x:Name="ProjectTitle"/>
+        <Entry x:Name="ProjectDescription"/>
+        <DatePicker x:Name="ProjectDate"/>
+        <Button Clicked="Button_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
