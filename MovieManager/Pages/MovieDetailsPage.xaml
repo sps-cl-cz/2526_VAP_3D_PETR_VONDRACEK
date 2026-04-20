@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieManager.Pages.MovieDetailsPage"
+             Title="Detail filmu">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="8">
+
+            <!-- Poster nahoře -->
+            <Image Source="{Binding EditImageUrl}"
+                   HeightRequest="220"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,8">
+                <Image.Triggers>
+                    <DataTrigger TargetType="Image"
+                                 Binding="{Binding EditImageUrl}"
+                                 Value="">
+                        <Setter Property="Source" Value="movie_placeholder.png"/>
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+
+            <Label Text="Název *" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding EditTitle}" Style="{StaticResource FormEntryStyle}"/>
+
+            <Label Text="Popis" Style="{StaticResource FormLabelStyle}"/>
+            <Editor Text="{Binding EditDescription}"
+                    HeightRequest="100" AutoSize="TextChanges"/>
+
+            <Label Text="Rok vydání" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding EditYear}" Keyboard="Numeric"
+                   Style="{StaticResource FormEntryStyle}"/>
+
+            <Label Text="Žánr" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding EditGenre}" Style="{StaticResource FormEntryStyle}"/>
+
+            <Label Text="Hodnocení (0–10)" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding EditRating}" Keyboard="Numeric"
+                   Style="{StaticResource FormEntryStyle}"/>
+
+            <Label Text="URL obrázku (poster)" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding EditImageUrl}" Style="{StaticResource FormEntryStyle}"/>
+
+            <Button Text="Uložit změny"
+                    Command="{Binding SaveCommand}"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Margin="0,16,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MovieManager.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MovieManager"
+    xmlns:pages="clr-namespace:MovieManager.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="MovieManager">
+
+    <TabBar>
+        <ShellContent
+            Title="Filmy"
+            Icon="movie_list.png"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage"/>
+
+        <ShellContent
+            Title="Přidat film"
+            Icon="movie_add.png"
+            ContentTemplate="{DataTemplate pages:NewMoviePage}"
+            Route="NewMoviePage"/>
+    </TabBar>
+
+</Shell>

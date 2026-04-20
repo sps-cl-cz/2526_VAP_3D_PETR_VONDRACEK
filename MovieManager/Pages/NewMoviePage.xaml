@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieManager.Pages.NewMoviePage"
+             Title="Přidat film">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="8">
+
+            <Label Text="Název *" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding Title}" Placeholder="Zadejte název filmu"
+                   Style="{StaticResource FormEntryStyle}"/>
+
+            <Label Text="Popis" Style="{StaticResource FormLabelStyle}"/>
+            <Editor Text="{Binding Description}" Placeholder="Krátký popis..."
+                    HeightRequest="100" AutoSize="TextChanges"/>
+
+            <Label Text="Rok vydání" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding Year}" Placeholder="např. 2024"
+                   Keyboard="Numeric" Style="{StaticResource FormEntryStyle}"/>
+
+            <Label Text="Žánr" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding Genre}" Placeholder="např. Drama, Akce..."
+                   Style="{StaticResource FormEntryStyle}"/>
+
+            <Label Text="Hodnocení (0–10)" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding Rating}" Placeholder="např. 7.5"
+                   Keyboard="Numeric" Style="{StaticResource FormEntryStyle}"/>
+
+            <Label Text="URL obrázku (poster)" Style="{StaticResource FormLabelStyle}"/>
+            <Entry Text="{Binding ImageUrl}" Placeholder="https://..."
+                   Style="{StaticResource FormEntryStyle}"/>
+
+            <Button Text="Uložit film"
+                    Command="{Binding SaveCommand}"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Margin="0,16,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

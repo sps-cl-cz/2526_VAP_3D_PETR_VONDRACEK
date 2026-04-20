@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieManager.MainPage"
+             Title="Filmy">
+
+    <ListView ItemsSource="{Binding Movies}"
+              ItemTapped="ListView_ItemTapped"
+              SeparatorVisibility="None"
+              HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame Style="{StaticResource CardStyle}">
+                        <Grid ColumnDefinitions="64,*" ColumnSpacing="12">
+
+                            <!-- Poster / ikona -->
+                            <Image Grid.Column="0"
+                                   Source="{Binding ImageUrl}"
+                                   WidthRequest="56"
+                                   HeightRequest="80"
+                                   Aspect="AspectFill"
+                                   VerticalOptions="Center">
+                                <Image.Triggers>
+                                    <DataTrigger TargetType="Image"
+                                                 Binding="{Binding ImageUrl}"
+                                                 Value="">
+                                        <Setter Property="Source" Value="movie_placeholder.png"/>
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+
+                            <!-- Info -->
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                                <Label Text="{Binding Title}"
+                                       Style="{StaticResource TitleLabelStyle}"
+                                       LineBreakMode="TailTruncation"/>
+                                <!-- Hvězdičkové hodnocení jako text -->
+                                <Label Style="{StaticResource DateLabelStyle}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="⭐ "/>
+                                            <Span Text="{Binding Rating, StringFormat='{0:0.#}'}"/>
+                                            <Span Text=" / 10"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>
