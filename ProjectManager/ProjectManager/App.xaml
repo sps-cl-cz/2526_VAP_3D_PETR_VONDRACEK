@@ -1,0 +1,79 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProjectManager"
+             x:Class="ProjectManager.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary>
+                    <Style x:Key="CardStyle" TargetType="Frame">
+                        <Setter Property="CornerRadius" Value="14"/>
+                        <Setter Property="Padding" Value="16"/>
+                        <Setter Property="Margin" Value="12,6"/>
+                        <Setter Property="HasShadow" Value="True"/>
+                        <Setter Property="BackgroundColor">
+                            <Setter.Value>
+                                <AppThemeBinding Light="White" Dark="#1E1E1E"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                    <Style x:Key="TitleLabelStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                    </Style>
+                    <Style x:Key="DateLabelStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="Opacity" Value="0.7"/>
+                    </Style>
+                    <Style x:Key="DeleteButtonStyle" TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="#EF4444"/>
+                        <Setter Property="TextColor" Value="White"/>
+                        <Setter Property="CornerRadius" Value="8"/>
+                        <Setter Property="Padding" Value="12,6"/>
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="VerticalOptions" Value="Center"/>
+                    </Style>
+                    <Style x:Key="FormLabelStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                        <Setter Property="Opacity" Value="0.7"/>
+                    </Style>
+                    <Style x:Key="FormEntryStyle" TargetType="Entry">
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="ClearButtonVisibility" Value="WhileEditing"/>
+                    </Style>
+                    <Style x:Key="FormDateStyle" TargetType="DatePicker">
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="#2563EB"/>
+                        <Setter Property="TextColor" Value="White"/>
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="HeightRequest" Value="50"/>
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                    </Style>
+                    <Style x:Key="ImageLabelStyle" TargetType="Label">
+                        <Setter Property="FontSize" Value="14"/>
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                        <Setter Property="Opacity" Value="0.7"/>
+                        <Setter Property="Margin" Value="0,0,10,0"/>
+                        <Setter Property="VerticalOptions" Value="Center"/>
+                    </Style>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="LightTheme">
+                    <Color x:Key="PrimaryColor">#6200EE</Color>
+                    <Color x:Key="BackgroundColor">White</Color>
+                    <Color x:Key="TextColor">Black</Color>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="DarkTheme">
+                    <Color x:Key="PrimaryColor">#BB86FC</Color>
+                    <Color x:Key="BackgroundColor">#121212</Color>
+                    <Color x:Key="TextColor">White</Color>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

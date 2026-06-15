@@ -1,0 +1,25 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectManager.MainPage"
+             xmlns:c="clr-namespace:ProjectManager.Controls">
+    <VerticalStackLayout>
+        <c:ThemeSwitch IsDarkTheme="{Binding IsDarkTheme, Mode=TwoWay}" />
+        <c:FilteredSearchBar Placeholder="Hledat projekt" ItemsSource="{Binding Projects}" Filter="Title" x:Name="ProjectSearchBar"/>
+        <ListView ItemsSource="{Binding FilteredItems, Source={x:Reference ProjectSearchBar}}" ItemTapped="ListView_ItemTapped" SeparatorVisibility="None" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Style="{StaticResource CardStyle}">
+                            <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                                <Image Grid.Column="0" Source="{Binding Icon}" HeightRequest="40" Aspect="AspectFill" Margin="0,0,10,0"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Title}" Style="{StaticResource TitleLabelStyle}" />
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Date, StringFormat='{0:dd.MM.yyyy}'}" Style="{StaticResource DateLabelStyle}" />
+                                <Button Grid.Column="2" Grid.RowSpan="2" Text="Odebrat" Style="{StaticResource DeleteButtonStyle}" Clicked="Button_Clicked"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

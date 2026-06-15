@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjectManager.Pages.ProjectDetailsPage"
+             xmlns:c="clr-namespace:ProjectManager.Controls"
+             Title="Detail projektu">
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="16">
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Text="Projekt: "/>
+                <Label Text="{Binding Title}"/>
+            </StackLayout>
+            <Frame Style="{StaticResource CardStyle}">
+                <VerticalStackLayout Spacing="14">
+                    <Label Text="Název projektu" Style="{StaticResource FormLabelStyle}" />
+                    <Entry Text="{Binding Title}" Placeholder="Zadejte název projektu" Style="{StaticResource FormEntryStyle}" />
+                    <Label Text="Popis projektu" Style="{StaticResource FormLabelStyle}" />
+                    <Entry Text="{Binding Description}" Placeholder="Krátký popis projektu" Style="{StaticResource FormEntryStyle}" />
+                    <Label Text="Datum" Style="{StaticResource FormLabelStyle}" />
+                    <DatePicker Date="{Binding Date}" Style="{StaticResource FormDateStyle}" />
+                    <c:ImagePicker ImagePath="{Binding Icon}" />
+                </VerticalStackLayout>
+            </Frame>
+            <Button Text="Zpět" Clicked="Button_Clicked" Style="{StaticResource PrimaryButtonStyle}" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
