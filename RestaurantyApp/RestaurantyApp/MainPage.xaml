@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RestaurantyApp.MainPage"
+             Title="Restaurace v okolí">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+        <VerticalStackLayout Grid.Row="0" Padding="20,20,20,10" Spacing="4">
+            <Label Text="Tvoje aktuální poloha:"
+                   FontSize="13"
+                   TextColor="Gray" />
+            <Label x:Name="LocationLabel"
+                   Text="Hledám polohu…"
+                   FontSize="22"
+                   FontAttributes="Bold" />
+        </VerticalStackLayout>
+        <Button Grid.Row="1"
+                x:Name="RefreshButton"
+                Text="🔄  Obnovit"
+                Margin="20,0"
+                Clicked="OnRefreshClicked"
+                IsEnabled="False" />
+        <ActivityIndicator Grid.Row="2"
+                           x:Name="LoadingIndicator"
+                           IsRunning="True"
+                           IsVisible="True"
+                           Margin="0,10"
+                           Color="{AppThemeBinding Light=#512BD4, Dark=#AC99EA}" />
+        <CollectionView Grid.Row="3"
+                        x:Name="RestaurantsList"
+                        SelectionMode="Single"
+                        SelectionChanged="OnRestaurantSelected"
+                        Margin="10,0">
+            <CollectionView.EmptyView>
+                <Label Text="Žádné restaurace nenalezeny."
+                       HorizontalTextAlignment="Center"
+                       Margin="0,40"
+                       TextColor="Gray"
+                       FontSize="16" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <Frame Padding="15"
+                               CornerRadius="10"
+                               HasShadow="True"
+                               BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}">
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="{Binding Properties.Name}"
+                                       FontSize="17"
+                                       FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation" />
+                                <Label Text="{Binding Properties.Street}"
+                                       FontSize="13"
+                                       TextColor="Gray"
+                                       LineBreakMode="TailTruncation" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

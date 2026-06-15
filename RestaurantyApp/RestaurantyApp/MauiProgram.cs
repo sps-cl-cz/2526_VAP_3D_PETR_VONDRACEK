@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using CommunityToolkit.Maui;
 
-namespace mobileApp
+namespace RestaurantyApp
 {
     public static class MauiProgram
     {
